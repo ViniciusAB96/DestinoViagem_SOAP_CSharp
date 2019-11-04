@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost:55852/DestinoViagem.asmx" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost:55852/DestinoViagem.asmx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost:55852/DestinoViagem.asmx">
+      <s:element name="ObterTodosDestinos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObterTodosDestinosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterTodosDestinosResult" type="tns:ArrayOfDestino" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDestino">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Destino" nillable="true" type="tns:Destino" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Destino">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Destinos" type="tns:ArrayOfDestino" />
+          <s:element minOccurs="0" maxOccurs="1" name="Acomodacoes" type="tns:ArrayOfAcomodacao" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoDestino" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nomedestino" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Classificacao" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaxaDestino" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cidade" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAcomodacao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Acomodacao" nillable="true" type="tns:Acomodacao" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Acomodacao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Acomodacoes" type="tns:ArrayOfAcomodacao" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoAcomodacao" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantidadeQuartos" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CEP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Classificacao" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDestino" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PegaDestinoPorCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaDestinoPorCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PegaDestinoPorCodigoResult" type="tns:Destino" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaDestinoPorFiltroDeNome">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaDestinoPorFiltroDeNomeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PegaDestinoPorFiltroDeNomeResult" type="tns:ArrayOfDestino" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirDestino">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoDest" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDest" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="classificDestino" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="taxa" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cidade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirDestinoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InserirDestinoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarDestino">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoDestino" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarDestinoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeletarDestinoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarDestino">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoDest" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomeDest" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="classificDestino" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="taxa" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cidade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarDestinoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AtualizarDestinoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaTodosDestinosComAcomodacao">
+        <s:complexType />
+      </s:element>
+      <s:element name="PegaTodosDestinosComAcomodacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PegaTodosDestinosComAcomodacaoResult" type="tns:ArrayOfDestino" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterTodasAcomodacoes">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObterTodasAcomodacoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterTodasAcomodacoesResult" type="tns:ArrayOfAcomodacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaAcomodacaoPorCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaAcomodacaoPorCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PegaAcomodacaoPorCodigoResult" type="tns:Acomodacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaListaDeAcomodacoesPorIdDestino">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idDestino" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaListaDeAcomodacoesPorIdDestinoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PegaListaDeAcomodacoesPorIdDestinoResult" type="tns:ArrayOfAcomodacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaAcomodacaoPorTipoNome">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipoAcomod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PegaAcomodacaoPorTipoNomeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PegaAcomodacaoPorTipoNomeResult" type="tns:ArrayOfAcomodacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirAcomodacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidadeQuartos" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cep" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="classifica" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="destino" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirAcomodacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InserirAcomodacaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarAcomodacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoAcomodacao" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletarAcomodacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeletarAcomodacaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarAcomodacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidadeQuartos" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cep" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="classifica" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="destino" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizarAcomodacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AtualizarAcomodacaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObterTodosDestinosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterTodosDestinos" />
+  </wsdl:message>
+  <wsdl:message name="ObterTodosDestinosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterTodosDestinosResponse" />
+  </wsdl:message>
+  <wsdl:message name="PegaDestinoPorCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:PegaDestinoPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="PegaDestinoPorCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:PegaDestinoPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PegaDestinoPorFiltroDeNomeSoapIn">
+    <wsdl:part name="parameters" element="tns:PegaDestinoPorFiltroDeNome" />
+  </wsdl:message>
+  <wsdl:message name="PegaDestinoPorFiltroDeNomeSoapOut">
+    <wsdl:part name="parameters" element="tns:PegaDestinoPorFiltroDeNomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirDestinoSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirDestino" />
+  </wsdl:message>
+  <wsdl:message name="InserirDestinoSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirDestinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletarDestinoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletarDestino" />
+  </wsdl:message>
+  <wsdl:message name="DeletarDestinoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletarDestinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarDestinoSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizarDestino" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarDestinoSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizarDestinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PegaTodosDestinosComAcomodacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:PegaTodosDestinosComAcomodacao" />
+  </wsdl:message>
+  <wsdl:message name="PegaTodosDestinosComAcomodacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:PegaTodosDestinosComAcomodacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterTodasAcomodacoesSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterTodasAcomodacoes" />
+  </wsdl:message>
+  <wsdl:message name="ObterTodasAcomodacoesSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterTodasAcomodacoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PegaAcomodacaoPorCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:PegaAcomodacaoPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="PegaAcomodacaoPorCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:PegaAcomodacaoPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PegaListaDeAcomodacoesPorIdDestinoSoapIn">
+    <wsdl:part name="parameters" element="tns:PegaListaDeAcomodacoesPorIdDestino" />
+  </wsdl:message>
+  <wsdl:message name="PegaListaDeAcomodacoesPorIdDestinoSoapOut">
+    <wsdl:part name="parameters" element="tns:PegaListaDeAcomodacoesPorIdDestinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PegaAcomodacaoPorTipoNomeSoapIn">
+    <wsdl:part name="parameters" element="tns:PegaAcomodacaoPorTipoNome" />
+  </wsdl:message>
+  <wsdl:message name="PegaAcomodacaoPorTipoNomeSoapOut">
+    <wsdl:part name="parameters" element="tns:PegaAcomodacaoPorTipoNomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirAcomodacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirAcomodacao" />
+  </wsdl:message>
+  <wsdl:message name="InserirAcomodacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirAcomodacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletarAcomodacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletarAcomodacao" />
+  </wsdl:message>
+  <wsdl:message name="DeletarAcomodacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletarAcomodacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarAcomodacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizarAcomodacao" />
+  </wsdl:message>
+  <wsdl:message name="AtualizarAcomodacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizarAcomodacaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DestinoViagemSoap">
+    <wsdl:operation name="ObterTodosDestinos">
+      <wsdl:input message="tns:ObterTodosDestinosSoapIn" />
+      <wsdl:output message="tns:ObterTodosDestinosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PegaDestinoPorCodigo">
+      <wsdl:input message="tns:PegaDestinoPorCodigoSoapIn" />
+      <wsdl:output message="tns:PegaDestinoPorCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PegaDestinoPorFiltroDeNome">
+      <wsdl:input message="tns:PegaDestinoPorFiltroDeNomeSoapIn" />
+      <wsdl:output message="tns:PegaDestinoPorFiltroDeNomeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirDestino">
+      <wsdl:input message="tns:InserirDestinoSoapIn" />
+      <wsdl:output message="tns:InserirDestinoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarDestino">
+      <wsdl:input message="tns:DeletarDestinoSoapIn" />
+      <wsdl:output message="tns:DeletarDestinoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarDestino">
+      <wsdl:input message="tns:AtualizarDestinoSoapIn" />
+      <wsdl:output message="tns:AtualizarDestinoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PegaTodosDestinosComAcomodacao">
+      <wsdl:input message="tns:PegaTodosDestinosComAcomodacaoSoapIn" />
+      <wsdl:output message="tns:PegaTodosDestinosComAcomodacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterTodasAcomodacoes">
+      <wsdl:input message="tns:ObterTodasAcomodacoesSoapIn" />
+      <wsdl:output message="tns:ObterTodasAcomodacoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PegaAcomodacaoPorCodigo">
+      <wsdl:input message="tns:PegaAcomodacaoPorCodigoSoapIn" />
+      <wsdl:output message="tns:PegaAcomodacaoPorCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PegaListaDeAcomodacoesPorIdDestino">
+      <wsdl:input message="tns:PegaListaDeAcomodacoesPorIdDestinoSoapIn" />
+      <wsdl:output message="tns:PegaListaDeAcomodacoesPorIdDestinoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PegaAcomodacaoPorTipoNome">
+      <wsdl:input message="tns:PegaAcomodacaoPorTipoNomeSoapIn" />
+      <wsdl:output message="tns:PegaAcomodacaoPorTipoNomeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirAcomodacao">
+      <wsdl:input message="tns:InserirAcomodacaoSoapIn" />
+      <wsdl:output message="tns:InserirAcomodacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarAcomodacao">
+      <wsdl:input message="tns:DeletarAcomodacaoSoapIn" />
+      <wsdl:output message="tns:DeletarAcomodacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarAcomodacao">
+      <wsdl:input message="tns:AtualizarAcomodacaoSoapIn" />
+      <wsdl:output message="tns:AtualizarAcomodacaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DestinoViagemSoap" type="tns:DestinoViagemSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObterTodosDestinos">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/ObterTodosDestinos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaDestinoPorCodigo">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaDestinoPorCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaDestinoPorFiltroDeNome">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaDestinoPorFiltroDeNome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirDestino">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/InserirDestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarDestino">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/DeletarDestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarDestino">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/AtualizarDestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaTodosDestinosComAcomodacao">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaTodosDestinosComAcomodacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterTodasAcomodacoes">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/ObterTodasAcomodacoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaAcomodacaoPorCodigo">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaAcomodacaoPorCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaListaDeAcomodacoesPorIdDestino">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaListaDeAcomodacoesPorIdDestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaAcomodacaoPorTipoNome">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaAcomodacaoPorTipoNome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAcomodacao">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/InserirAcomodacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarAcomodacao">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/DeletarAcomodacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarAcomodacao">
+      <soap:operation soapAction="http://localhost:55852/DestinoViagem.asmx/AtualizarAcomodacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DestinoViagemSoap12" type="tns:DestinoViagemSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObterTodosDestinos">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/ObterTodosDestinos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaDestinoPorCodigo">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaDestinoPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaDestinoPorFiltroDeNome">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaDestinoPorFiltroDeNome" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirDestino">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/InserirDestino" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarDestino">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/DeletarDestino" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarDestino">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/AtualizarDestino" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaTodosDestinosComAcomodacao">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaTodosDestinosComAcomodacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterTodasAcomodacoes">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/ObterTodasAcomodacoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaAcomodacaoPorCodigo">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaAcomodacaoPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaListaDeAcomodacoesPorIdDestino">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaListaDeAcomodacoesPorIdDestino" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PegaAcomodacaoPorTipoNome">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/PegaAcomodacaoPorTipoNome" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAcomodacao">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/InserirAcomodacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarAcomodacao">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/DeletarAcomodacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizarAcomodacao">
+      <soap12:operation soapAction="http://localhost:55852/DestinoViagem.asmx/AtualizarAcomodacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DestinoViagem">
+    <wsdl:port name="DestinoViagemSoap" binding="tns:DestinoViagemSoap">
+      <soap:address location="http://localhost:55852/DestinoViagem.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DestinoViagemSoap12" binding="tns:DestinoViagemSoap12">
+      <soap12:address location="http://localhost:55852/DestinoViagem.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
