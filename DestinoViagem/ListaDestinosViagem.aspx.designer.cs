@@ -22,21 +22,30 @@ namespace DestinoViagem {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ButListar control.
+        /// ButtonBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButListar;
+        protected global::System.Web.UI.WebControls.Button ButtonBack;
         
         /// <summary>
-        /// TableDestinos control.
+        /// dropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table TableDestinos;
+        protected global::System.Web.UI.WebControls.DropDownList dropDown;
+        
+        /// <summary>
+        /// GvAcomodacoes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GvAcomodacoes;
     }
 }

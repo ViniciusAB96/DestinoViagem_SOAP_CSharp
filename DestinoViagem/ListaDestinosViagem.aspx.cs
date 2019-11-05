@@ -11,23 +11,43 @@ namespace DestinoViagem
 {
     public partial class ListaDestinosViagem : System.Web.UI.Page
     {
-        WebServiceDestinoViagem.DestinoViagemSoapClient destinoViagem = new WebServiceDestinoViagem.DestinoViagemSoapClient("DestinoViagemSoap");
+      
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            { 
+                WebServiceDestinoViagem.DestinoViagemSoapClient destinoViagem = new WebServiceDestinoViagem.DestinoViagemSoapClient("DestinoViagemSoap");
 
-          
-           
+                List<WebServiceDestinoViagem.Destino> destinos = destinoViagem.ObterTodosDestinos().ToList();
+                dropDown.DataTextField = "Nomedestino";
+                dropDown.DataValueField = "CodigoDestino";
+                dropDown.DataSource = destinos;
+                dropDown.DataBind();
+            }
 
         }
 
         protected void ButListar_Click(object sender, EventArgs e)
         {
-            List<WebServiceDestinoViagem.Destino> destinos = destinoViagem.ObterTodosDestinos().ToList();
             
-            foreach (WebServiceDestinoViagem.Destino dest in destinos)
-            {
-                TableDestinos.Rows.Add.Items(dest.CodigoDestino.ToString(), dest.Nomedestino, dest.Classificacao.ToString(), dest.Estado, dest.Cidade);
-            }
+            
+            //foreach (WebServiceDestinoViagem.Destino dest in destinos)
+            //{
+            //    TableDestinos.Rows.Add.Items(dest.CodigoDestino.ToString(), dest.Nomedestino, dest.Classificacao.ToString(), dest.Estado, dest.Cidade);
+            //}
+        }
+
+        protected void dropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            WebServiceDestinoViagem.DestinoViagemSoapClient destinoViagem = new WebServiceDestinoViagem.DestinoViagemSoapClient("DestinoViagemSoap");
+            GvAcomodacoes.DataSource = destinoViagem.PegaListaDeAcomodacoesPorIdDestino(int.Parse(dropDown.SelectedValue));
+            GvAcomodacoes.DataBind();
+        }
+
+        protected void ButtonBack_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

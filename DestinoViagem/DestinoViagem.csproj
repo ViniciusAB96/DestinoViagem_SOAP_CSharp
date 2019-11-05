@@ -126,6 +126,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="ListaDestinosViagem.aspx" />
+    <Content Include="Main.aspx" />
     <Content Include="Web.config" />
     <None Include="Connected Services\WebServiceDestinoViagem\DestinoViagem.wsdl" />
   </ItemGroup>
@@ -141,6 +142,13 @@
     </Compile>
     <Compile Include="ListaDestinosViagem.aspx.designer.cs">
       <DependentUpon>ListaDestinosViagem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
