@@ -43,6 +43,14 @@ namespace WebServiceDestinoViagens
             }
         }
 
+
+        [WebMethod]
+        public List<Destino> PegaTodosDestinosComAcomodacao()
+        {
+            return destino.GetAllDestinosAcomodacoes(acomodacaosList);
+        }
+
+
         [WebMethod]
         public Destino PegaDestinoPorCodigo(int id)
         {
@@ -97,13 +105,6 @@ namespace WebServiceDestinoViagens
             }
         }
 
-        [WebMethod]
-        public List<Destino> PegaTodosDestinosComAcomodacao()
-        {
-            return destino.GetAllDestinosAcomodacoes(acomodacaosList);
-        }
-
-
 
         [WebMethod]
         public List<Acomodacao> ObterTodasAcomodacoes()
@@ -123,8 +124,7 @@ namespace WebServiceDestinoViagens
             return acomodacao.GetByCodigoDestino(idDestino);
         }
 
-
-
+        
         [WebMethod]
         public List<Acomodacao> PegaAcomodacaoPorTipoNome(string tipoAcomod)
         {

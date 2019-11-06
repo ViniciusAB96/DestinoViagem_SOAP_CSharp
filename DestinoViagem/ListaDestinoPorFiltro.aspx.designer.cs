@@ -10,7 +10,7 @@
 namespace DestinoViagem {
     
     
-    public partial class ListaDestinosViagem {
+    public partial class DestinoPorCodigo {
         
         /// <summary>
         /// Controle form1.
@@ -31,21 +31,39 @@ namespace DestinoViagem {
         protected global::System.Web.UI.WebControls.Button ButtonBack;
         
         /// <summary>
-        /// Controle dropDown.
+        /// Controle TextID.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDown;
+        protected global::System.Web.UI.WebControls.TextBox TextID;
         
         /// <summary>
-        /// Controle GvAcomodacoes.
+        /// Controle TextNome.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvAcomodacoes;
+        protected global::System.Web.UI.WebControls.TextBox TextNome;
+        
+        /// <summary>
+        /// Controle ButPesq.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButPesq;
+        
+        /// <summary>
+        /// Controle GridDestinos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridDestinos;
     }
 }

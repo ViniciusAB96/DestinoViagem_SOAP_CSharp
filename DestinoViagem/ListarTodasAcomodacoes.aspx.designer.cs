@@ -10,7 +10,7 @@
 namespace DestinoViagem {
     
     
-    public partial class ListaDestinosViagem {
+    public partial class ListarTodasAcomodacoes {
         
         /// <summary>
         /// Controle form1.
@@ -31,21 +31,12 @@ namespace DestinoViagem {
         protected global::System.Web.UI.WebControls.Button ButtonBack;
         
         /// <summary>
-        /// Controle dropDown.
+        /// Controle GridAcomodacoes.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDown;
-        
-        /// <summary>
-        /// Controle GvAcomodacoes.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvAcomodacoes;
+        protected global::System.Web.UI.WebControls.GridView GridAcomodacoes;
     }
 }

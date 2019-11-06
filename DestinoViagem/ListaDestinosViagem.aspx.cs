@@ -49,5 +49,10 @@ namespace DestinoViagem
         {
             
         }
+
+        protected void GvAcomodacoes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

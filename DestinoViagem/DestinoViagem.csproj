@@ -70,6 +70,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="IDUAcomodacao.aspx" />
+    <Content Include="IDUDestino.aspx" />
+    <Content Include="ListaDestinoPorFiltro.aspx" />
+    <Content Include="ListaAcomodacoesFiltro.aspx" />
+    <Content Include="ListarDestinos.aspx" />
     <None Include="Connected Services\WebServiceDestinoViagem\DestinoViagem.disco" />
     <None Include="Connected Services\WebServiceDestinoViagem\configuration91.svcinfo" />
     <None Include="Connected Services\WebServiceDestinoViagem\configuration.svcinfo" />
@@ -126,15 +132,51 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="ListaDestinosViagem.aspx" />
+    <Content Include="ListarTodasAcomodacoes.aspx" />
     <Content Include="Main.aspx" />
     <Content Include="Web.config" />
     <None Include="Connected Services\WebServiceDestinoViagem\DestinoViagem.wsdl" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\WebServiceDestinoViagem\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="IDUAcomodacao.aspx.cs">
+      <DependentUpon>IDUAcomodacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IDUAcomodacao.aspx.designer.cs">
+      <DependentUpon>IDUAcomodacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IDUDestino.aspx.cs">
+      <DependentUpon>IDUDestino.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IDUDestino.aspx.designer.cs">
+      <DependentUpon>IDUDestino.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListaDestinoPorFiltro.aspx.cs">
+      <DependentUpon>ListaDestinoPorFiltro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaDestinoPorFiltro.aspx.designer.cs">
+      <DependentUpon>ListaDestinoPorFiltro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListaAcomodacoesFiltro.aspx.cs">
+      <DependentUpon>ListaAcomodacoesFiltro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaAcomodacoesFiltro.aspx.designer.cs">
+      <DependentUpon>ListaAcomodacoesFiltro.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListaDestinosViagem.aspx.cs">
       <DependentUpon>ListaDestinosViagem.aspx</DependentUpon>
@@ -142,6 +184,13 @@
     </Compile>
     <Compile Include="ListaDestinosViagem.aspx.designer.cs">
       <DependentUpon>ListaDestinosViagem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarTodasAcomodacoes.aspx.cs">
+      <DependentUpon>ListarTodasAcomodacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarTodasAcomodacoes.aspx.designer.cs">
+      <DependentUpon>ListarTodasAcomodacoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
@@ -151,6 +200,13 @@
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ListarDestinos.aspx.cs">
+      <DependentUpon>ListarDestinos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarDestinos.aspx.designer.cs">
+      <DependentUpon>ListarDestinos.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
